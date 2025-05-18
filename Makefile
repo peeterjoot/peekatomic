@@ -1,7 +1,12 @@
 #CXX := g++-17
 CXXFLAGS += -O2
 CXXFLAGS += -std=c++20
+
+ifeq (`uname -m`,'x86_64')
 FILTER = | grep -ve nopw -e nopl
+else
+FILTER = | grep -ve '\<nop\>'
+endif
 
 all :: t.o
 

@@ -1,53 +1,51 @@
 #include <atomic>
 
-std::atomic<int> i32;
-
-int load()
+int load( std::atomic<int> & i32 )
 {
     return i32.load();
 }
 
-int load_acq()
+int load_acq( std::atomic<int> & i32 )
 {
     return i32.load( std::memory_order_acquire );
 }
 
-int load_cst()
+int load_cst( std::atomic<int> & i32 )
 {
     return i32.load( std::memory_order_seq_cst );
 }
 
-void store( int v )
+void store( std::atomic<int> & i32, int v )
 {
     i32.store( v );
 }
 
-void store_rel( int v )
+void store_rel( std::atomic<int> & i32, int v )
 {
     i32.store( v, std::memory_order_release );
 }
 
-void store_cst( int v )
+void store_cst( std::atomic<int> & i32, int v )
 {
     i32.store( v, std::memory_order_seq_cst );
 }
 
-int fetch_add( int v )
+int fetch_add( std::atomic<int> & i32, int v )
 {
     return i32.fetch_add( v );
 }
 
-int fetch_add_rel( int v )
+int fetch_add_rel( std::atomic<int> & i32, int v )
 {
     return i32.fetch_add( v, std::memory_order_release );
 }
 
-int fetch_add_acq( int v )
+int fetch_add_acq( std::atomic<int> & i32, int v )
 {
     return i32.fetch_add( v, std::memory_order_acquire );
 }
 
-int fetch_add_cst( int v )
+int fetch_add_cst( std::atomic<int> & i32, int v )
 {
     return i32.fetch_add( v, std::memory_order_seq_cst );
 }
