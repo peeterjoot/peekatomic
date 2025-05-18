@@ -60,4 +60,15 @@ int fetch_add_cst( std::atomic<int> & i32, int v )
     return i32.fetch_add( v, std::memory_order_seq_cst );
 }
 
+int main()
+{
+    std::atomic<int> x{};
+    int v = fetch_add_cst( x, 1 );
+    printf( "%d\n", v );
+    v = fetch_add_cst( x, 1 );
+    printf( "%d\n", v );
+
+    return 0;
+}
+
 // vim: et ts=4 sw=4

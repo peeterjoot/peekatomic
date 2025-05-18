@@ -1,4 +1,5 @@
-#CXX := g++-17
+CC  := g++
+CXX := g++
 CXXFLAGS += -O2
 CXXFLAGS += -std=c++20
 
@@ -8,7 +9,7 @@ else
 FILTER = | grep -ve '\<nop\>'
 endif
 
-all :: t.o
+all :: t.o t
 
 all :: t.dis
 
@@ -16,4 +17,4 @@ t.dis : t.o
 	objdump --no-show-raw-insn -d t.o $(FILTER) | c++filt | tee $@
 
 clean :
-	rm t.o t.dis
+	rm t.o t.dis t
