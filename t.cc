@@ -1,5 +1,10 @@
 #include <atomic>
 
+int loadv( int & i32 )
+{
+    return i32;
+}
+
 int load( std::atomic<int> & i32 )
 {
     return i32.load();
@@ -13,6 +18,11 @@ int load_acq( std::atomic<int> & i32 )
 int load_cst( std::atomic<int> & i32 )
 {
     return i32.load( std::memory_order_seq_cst );
+}
+
+void storev( int & i32, int v )
+{
+    i32 = v;
 }
 
 void store( std::atomic<int> & i32, int v )
