@@ -1,7 +1,5 @@
 #include <atomic>
 
-int x;
-int y;
 std::atomic<int> i32;
 
 int load()
@@ -53,6 +51,5 @@ int fetch_add_cst( int v )
 {
     return i32.fetch_add( v, std::memory_order_seq_cst );
 }
-
 
 // vim: et ts=4 sw=4
