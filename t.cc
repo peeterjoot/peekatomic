@@ -1,4 +1,5 @@
 #include <atomic>
+#include <stdio.h>
 
 int loadv( int & i32 )
 {
